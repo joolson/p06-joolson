@@ -260,11 +260,11 @@ class BaseEngine:
 
     def get_proportional_width(self, new_height):
         width, height = self.size
-        return round(float(new_height) * width / height, 0)
+        return max(1, round(float(new_height) * width / height, 0))
 
     def get_proportional_height(self, new_width):
         width, height = self.size
-        return round(float(new_width) * height / width, 0)
+        return max(1, round(float(new_width) * height / width, 0))
 
     def _get_exif_object(self):
         if (not hasattr(self, "exif")) or self.exif is None:
